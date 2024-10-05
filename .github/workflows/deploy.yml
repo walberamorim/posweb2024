@@ -31,3 +31,4 @@ jobs:
           key: ${{ secrets.KEY }}
           source: "backend/myapi.py"
           target: "/home/ubuntu/myapp/"
+          strip_components: 1
