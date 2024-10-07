@@ -44,5 +44,5 @@ jobs:
           strip_components: 1
 
       - run: echo "Rodando o banco de dados"
-      - run: mysql --force --host="${{ secrets.DB_HOST }}" --port="3306" --database="myapp" --user="${{ secrets.USERDB }}" --password="${{ secrets.KEYDB }}"  < "/home/ubuntu/myapp/db.sql"
+      - run: mysql --force --host="${{ secrets.DB_HOST }}" --port="3306" --database="myapp" --user="${{ secrets.USERDB }}" --password="${{ secrets.KEYDB }}"  < /home/ubuntu/myapp/db.sql
       - run: echo "🍏 Boa!"
