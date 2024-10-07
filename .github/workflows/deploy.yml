@@ -32,3 +32,23 @@ jobs:
           source: "backend/myapi.py"
           target: "/home/ubuntu/myapp/"
           strip_components: 1
+
+      - name: Deploy DB
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          source: "db/db.sql"
+          target: "/home/ubuntu/myapp/"
+          strip_components: 1
+
+      - name: Run DB
+        uses: calxus/mysql-deploy-action@v1
+        with:
+          DATABASE_HOST: 'db.host.io'
+          DATABASE_PORT: '3306'
+          DATABASE_NAME: 'myapp'
+          DATABASE_USERNAME: ${{ secrets.USERDB }}
+          DATABASE_PASSWORD: ${{ secrets.KEYDB }}
+          DATABASE_SCRIPT: '/home/ubuntu/myapp/db.sql'

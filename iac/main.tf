@@ -16,7 +16,7 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
+  instance_type = "t2.micro"
   key_name = "chave_rsa"
   security_groups = [aws_security_group.posweb_myapp_2024_sg.name]
   user_data = base64encode(data.template_file.user_data.rendered)
