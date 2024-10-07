@@ -42,6 +42,13 @@ jobs:
           source: "db/db.sql"
           target: "/home/ubuntu/myapp/"
           strip_components: 1
+      
+      - name: Set up SSH
+        run: |
+            mkdir -p ~/.ssh
+            echo "${{ secrets.KEY }}" > ~/.ssh/id_ed25519
+            chmod 600 ~/.ssh/id_ed25519
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
 
       - run: echo "Rodando o banco de dados"
       - run: ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} 'mysql --force --host="${{ secrets.DB_HOST }}" --port="3306" --database="myapp" --user="${{ secrets.USERDB }}" --password="${{ secrets.KEYDB }}"  < /home/ubuntu/myapp/db.sql'
