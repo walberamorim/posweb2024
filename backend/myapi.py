@@ -8,7 +8,7 @@ CORS(app)
 # Configure MySQL
 app.config['MYSQL_USER'] = 'myapp_user'
 app.config['MYSQL_PASSWORD'] = 'myapp_passwd'
-app.config['MYSQL_HOST'] = 'terraform-20241009111417081800000001.clwyy42usbtg.us-east-2.rds.amazonaws.com'
+app.config['MYSQL_HOST'] = 'terraform-20241009113549904400000002.clwyy42usbtg.us-east-2.rds.amazonaws.com'
 app.config['MYSQL_DB'] = 'myapp'
 
 mysql = MySQL(app)
