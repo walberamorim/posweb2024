@@ -18,7 +18,7 @@ flask run --host=0.0.0.0
 
 ETAPAS DE APRESENTAÇÃO:
 
-1 - terraform init
+1 - terraform apply
 2 - pegar IP pro actions
 3 - pegar IP pro frontend
 4 - pegar host-bd pro backend
